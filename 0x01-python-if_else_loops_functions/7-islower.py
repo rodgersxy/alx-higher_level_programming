@@ -3,4 +3,7 @@
 # Returns True is c is lowercase else False
 
 def isLower(c):
-    return(ord('a') <= ord(c) <= ord('z'))
+    if ord('a') <= ord(c) <= ord('z'):
+        return True
+    else:
+        return False
