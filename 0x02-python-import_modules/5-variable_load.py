@@ -1,6 +1,6 @@
 #!/usr/bin/python3
 
-"""program that imports the variable a from the file variable_load_5.py and prints"""
+"""program that imports the variable a from variable_load_5.py"""
 
 if __name__ == "__main__":
 
