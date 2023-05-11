@@ -1,9 +1,8 @@
 #!/usr/bin/python3
 
+import sys
 """Print numbers with lists of arguments"""
 if __name__ == "__main__":
-
-    import sys
 
     args = len(sys.argv) - 1
     if args == 0:
