@@ -1,5 +1,6 @@
 #!/usr/bin/python3
 
+"""Print numbers with lists of arguments"""
 if __name__ == "__main__":
 
     import sys
