@@ -3,8 +3,8 @@
 # import functions from module calculator_1.py
 
 if __name__ == "__main__":
-    from calculator_1 import add, sub, div, mul
 
+    from calculator_1 import add, sub, div, mul
     # assign variables
     a = 10
     b = 5
