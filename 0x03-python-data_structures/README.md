@@ -2,15 +2,15 @@
 
 ## General
 
- Why Python programming is awesome
- What are lists and how to use them
- What are the differences and similarities between strings and lists
- What are the most common methods of lists and how to use them
- How to use lists as stacks and queues
- What are list comprehensions and how to use them
- What are tuples and how to use them
- When to use tuples versus lists
- What is a sequence
- What is tuple packing
- What is sequence unpacking
- What is the del statement and how to use it
+1.  Why Python programming is awesome
+2.  What are lists and how to use them
+3.  What are the differences and similarities between strings and lists
+4.  What are the most common methods of lists and how to use them
+5.  How to use lists as stacks and queues
+6.  What are list comprehensions and how to use them
+7.  What are tuples and how to use them
+8.  When to use tuples versus lists
+9.  What is a sequence
+10. What is tuple packing
+11. What is sequence unpacking
+12.  What is the del statement and how to use it
