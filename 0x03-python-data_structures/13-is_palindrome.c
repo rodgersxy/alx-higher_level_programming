@@ -3,62 +3,43 @@
 #include <stdlib.h>
 
 /**
-* is_palindrome - function that checks if a singly linked list
-* is a palindrome
-* @head: double pointer
+* is_palindrome - the function that checks if a singly
+* linked list is a palindrome.
+* @head: double pointer to the list head
 * Return: 0 if it is not a palindrome, 1 if it is a palindrome
 */
 
 int is_palindrome(listint_t **head)
 {
-	listint_t *slow = *head;
-	listint_t *fast = *head;
-	listint_t *reverse = NULL;
+	int node = 0, i = 0, *array = NULL;
 
-	if (head == NULL || *head == NULL)
+	listint_t *temp = *head;
+
+	if (*head == NULL || head == NULL || (*head)->next == NULL)
 		return (1);
-	/*find the middle node*/
-	while (fast != NULL && fast->next != NULL)
+	while (temp)
 	{
-		slow = slow->next;
-		fast = fast->next->next;
+		node++;
+		temp = temp->next;
 	}
-	/*reverse**/
-	reverse = reverse_list(&slow);
-
-	listint_t *current = *head;
-
-	while (current != NULL && reverse != NULL)
+	/*allocating memory*/
+	array = malloc(sizeof(int) * node);
+	temp = *head;
+	while (temp)
 	{
-		if (current->n != reverse->n)
+		array[i++] = temp->n;
+		temp = temp->next;
+	}
+
+	for (i = 0; i < node / 2; i++)
+	{
+		if (array[i] != array[node - 1 - i])
+		{
+			free(array);
 			return (0);
-		current = current->next;
-		reverse = reverse->next;
+		}
 	}
-	reverse_list(&slow);
 
+	free(array);
 	return (1);
-}
-
-/**
-* reverse_list -reverse linked list
-* @head: double pointer to the head
-* Return: pointer to first node of the reverved list
-*/
-
-listint_t *reverse_list(listint_t **head)
-{
-	listint_t *reverse = NULL;
-	listint_t *previous = *head;
-	listint_t *next = *head;
-
-	while (previous)
-	{
-		next = next->next;
-		previous->next = reverse;
-		reverse = previous;
-		previous = next;
-	}
-
-	return (reverse);
 }
