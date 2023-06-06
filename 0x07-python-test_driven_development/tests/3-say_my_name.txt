@@ -8,18 +8,16 @@ Function to test say_my_name, possible scenarios
 ' import function '
 >>> say_my_name = __import__('3-say_my_name').say_my_name
 
-'Posible tests'
-
 >>> say_my_name("", "")
-My name is
+"My name is "
 
 >>> say_my_name("Rodgers")
 My name is Rodgers
 
->>> say_my_name("Rodgers Mogaka")
+>>> say_my_name("Rodgers", "Mogaka")
 My name is Rodgers Mogaka
 
->>> say_my_name("9", "Mogaka")
+>>> say_my_name(9, "Mogaka")
 Traceback (most recent call last):
     ...
 TypeError: first_name must be a string
