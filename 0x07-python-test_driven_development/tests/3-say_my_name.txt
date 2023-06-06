@@ -1,0 +1,36 @@
+'function that prints My name is <first name> <last name>'
+------------------------------------------------------------
+'module say_my_name'
+----------------------------------------------------------
+Function to test say_my_name, possible scenarios
+----------------------------------------------------------
+
+' import function '
+>>> say_my_name = __import__('3-say_my_name').say_my_name
+
+'Posible tests'
+
+>>> say_my_name("", "")
+My name is
+
+>>> say_my_name("Rodgers")
+My name is Rodgers
+
+>>> say_my_name("Rodgers Mogaka")
+My name is Rodgers Mogaka
+
+>>> say_my_name("9", "Mogaka")
+Traceback (most recent call last):
+    ...
+TypeError: first_name must be a string
+
+>>> say_my_name("Rodgers", 90)
+Traceback (most recent call last):
+    ...
+TypeError: last_name must be a string
+
+# boolean
+>>> say_my_name(False, "Mogaka")
+Traceback (most recent call last):
+    ...
+TypeError: first_name must be a string
