@@ -1,0 +1,53 @@
+docstring module 101-lazy_matrix_mul
+--------------------------------------------------------------
+a function that multiplies 2 matrices by using the module NumPy
+----------------------------------------------------------------
+Prototype: def lazy_matrix_mul(m_a, m_b)
+--------------------------------------------------------------
+>>> lazy_matrix_mul = __import__("101-lazy_matrix_mul").lazy_matrix_mul
+
+>>> m = __import__("101-lazy_matrix_mul").__doc__
+>>> len(m) > 1
+True
+
+>>> f = __import__("101-lazy_matrix_mul").lazy_matrix_mul.__doc__
+>>> len(f) > 1
+True
+
+>>> lazy_matrix_mul()
+Traceback (most recent call last):
+...
+TypeError: lazy_matrix_mul() missing 2 required positional arguments: 'm_a' and 'm_b'
+
+>>> print(lazy_matrix_mul([[1, 6], [6, 4]], [[18], [32]]))
+[[210], [236]]
+
+"test for empty argument"
+>>> lazy_matrix_mul()
+Traceback (most recent call last):
+...
+TypeError: lazy_matrix_mul() missing 2 required positional arguments: 'm_a' and 'm_b'
+
+>>> print(lazy_matrix_mul([[1.6, -4.5], [-6, 5-3]], [[-0.4], [1.3]]))
+[[-6.49], [5.0]]
+
+>>> lazy_matrix_mul([[2, 2]], [[6]], [[22]])
+Traceback (most recent call last):
+...
+TypeError: lazy_matrix_mul() takes 2 positional arguments but 3 were given
+
+>>> lazy_matrix_mul([[4, 9]])
+Traceback (most recent call last):
+...
+TypeError: lazy_matrix_mul() missing 1 required positional argument: 'm_b'
+
+>>> lazy_matrix_mul(True, [[8, 7]])
+Traceback (most recent call last):
+...
+IndexError: tuple index out of range
+
+>>> lazy_matrix_mul([[3, 4.3, 6.5, 5]], ["mani", 7])
+Traceback (most recent call last):
+...
+    raise ValueError("m_a and m_b can't be multiplied")
+ValueError: m_a and m_b can't be multiplied
