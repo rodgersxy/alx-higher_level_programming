@@ -49,3 +49,24 @@ class MaxIntegerTestCase(unittest.TestCase):
         """
         test_max = [10, 5, 10, 15, 3]
         self.assertEqual(max_integer(test_max), max(test_max))
+
+    def test_max_integer_empty(self):
+        """
+        test case for empty list list ith no arguuments
+        """
+        test_max = []
+        self.assertEqual(max_integer(test_max), None)
+
+    def test_max_integer_large_numbers(self):
+        """
+        test case for large numbers
+        """
+        test_max = [1090000, 2100000, 3010000, 4000900]
+        self.assertEqual(max_integer(test_max), max(test_max))
+
+    def test_max_integer_two_elements(self):
+        """
+        Test case for a list with two elements
+        """
+        test_max = [3, 7]
+        self.assertEqual(max_integer(test_max), max(test_max))
