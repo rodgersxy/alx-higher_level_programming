@@ -1,0 +1,61 @@
+---------------------------------------------------------------------
+doctest test cases for 7-base_geometry module
+---------------------------------------------------------------------
+# import
+>>> BaseGeometry = __import__('7-base_geometry').BaseGeometry
+
+# Create an instance of the BaseGeometry class
+>>> bg = BaseGeometry()
+
+# The integer_validator() method should not raise an exception for valid input
+>>> bg = BaseGeometry()
+>>> bg.integer_validator("age", 1)
+>>> bg.integer_validator("test", 10)
+>>> bg.integer_validator("test", 101)
+
+# The integer_validator() method should raise a TypeError for non-integer inputs
+>>> bg = BaseGeometry()
+>>> bg.integer_validator("test", "string")
+Traceback (most recent call last):
+....
+    raise TypeError(name + " must be an integer")
+TypeError: test must be an integer
+
+# test case for "age"
+>>> bg = BaseGeometry()
+>>> bg.integer_validator("age")
+Traceback (most recent call last):
+...
+TypeError: integer_validator() missing 1 required positional argument: 'value'
+
+# test case string
+>>> bg = BaseGeometry()
+>>> bg.integer_validator("age", "3")
+Traceback (most recent call last):
+...
+    raise TypeError(name + " must be an integer")
+TypeError: age must be an integer
+
+# test case for {2, 9}
+>>> bg = BaseGeometry()
+>>> bg.integer_validator("age", {2, 9})
+Traceback (most recent call last):
+...
+    raise TypeError(name + " must be an integer")
+TypeError: age must be an integer
+
+# test case [19]
+>>> bg = BaseGeometry()
+>>> bg.integer_validator("age", [19])
+Traceback (most recent call last):
+...
+    raise TypeError(name + " must be an integer")
+TypeError: age must be an integer
+
+# test case for negative integer
+>>> bg = BaseGeometry()
+>>> bg.integer_validator("age", -7)
+Traceback (most recent call last):
+...
+    raise ValueError(name + " must be greater than 0")
+ValueError: age must be greater than 0
