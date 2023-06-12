@@ -59,3 +59,11 @@ Traceback (most recent call last):
 ...
     raise ValueError(name + " must be greater than 0")
 ValueError: age must be greater than 0
+
+# Test with "age", True
+>>> bg = BaseGeometry()
+>>> bg.integer_validator("age", True)
+Traceback (most recent call last):
+...
+    raise TypeError(name + " must be an integer")
+TypeError: age must be an integer
