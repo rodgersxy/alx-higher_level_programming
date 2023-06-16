@@ -39,6 +39,7 @@ class Rectangle(Base):
         setter for width attribute
         sets the value of width
         """
+        self.data_validator("width", width)
         self._width = width
 
     @property
@@ -53,6 +54,7 @@ class Rectangle(Base):
         """
         sets the value of height
         """
+        self.data_validator("height", height)
         self.__height = height
 
     @property
@@ -67,6 +69,7 @@ class Rectangle(Base):
         """
         sets the value of x
         """
+        self.data_validator("x", x)
         self.__x = x
 
     @property
@@ -81,4 +84,18 @@ class Rectangle(Base):
         """
         sets the value of the y
         """
+        self.data_validator("y", y)
         self.__y = y
+
+    def data_validator(self, name, value):
+        """
+        validates and checking of type and values of arguments
+        before assigning value to corresponding private attri
+        Args:
+            name(str) : name of arguments
+            value : value of the the argument
+        Raises:
+            TypeError:  If the input is not an integer
+            ValueError: If the values are not within the allowed
+            range
+        """
