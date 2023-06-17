@@ -77,3 +77,18 @@ class Base:
             else:
                 file.write(cls.to_json_string(
                     [elt.to_dictionary() for elt in list_objs]))
+
+    @classmethod
+    def create(cls, **dictionary):
+        """
+        returns instance with all attributes
+        Args:
+            **dictionary: Double pointer to a dictionary
+        Returns - Base: instance with all attri
+        """
+        if cls.__name__ == "Rectangle":
+            dummy_instance = cls(1, 1)
+        else:
+            dummy_instance = cls(1)
+        dummy_instance.update(**dictionary)
+        return dummy_instance
