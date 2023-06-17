@@ -92,3 +92,22 @@ class Base:
             dummy_instance = cls(1)
         dummy_instance.update(**dictionary)
         return dummy_instance
+
+    @classmethod
+    def load_from_file(cls):
+        """
+        returns a list of instances
+        Args:
+            list of instance
+        """
+        filename = cls.__name__ + ".json"
+        instance_result = []
+        try:
+            with open(filename, "r", encoding="utf-8") as file:
+                read_file = file.read()
+            instance_list = cls.from_json_string(read_file)
+            for elt in instance_list:
+                instance_result.append(cls.create(**elt))
+            return instance_result
+        except Exception:
+            return instance_result
