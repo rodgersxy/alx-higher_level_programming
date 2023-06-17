@@ -31,7 +31,7 @@ class Rectangle(Base):
         @property decorator is used to define getter methods for
         the private instance attributes
         """
-        return self.__width
+        return self._width
 
     @width.setter
     def width(self, width):
@@ -113,3 +113,18 @@ class Rectangle(Base):
         rectangle
         """
         return self.width * self.height
+
+    def display(self):
+        """
+        adding the public method def display(self)
+        that prints in stdout the Rectangle instance with the
+        character #
+        """
+        for i in range(self.y):
+            print("\n", end="")
+        for j in range(self.height):
+            for k in range(self.x):
+                print(" ", end="")
+            for m in range(self.width):
+                print("#", end="")
+            print()
