@@ -128,3 +128,11 @@ class Rectangle(Base):
             for m in range(self.width):
                 print("#", end="")
             print()
+
+    def __str__(self):
+        """
+        overriding the __str__ method so that it returns [Rectangle]
+        elements
+        """
+        return ("[Rectangle] ({}) {}/{} - {}/{}".format(
+            self.id, self.x, self.y, self.width, self.height))
