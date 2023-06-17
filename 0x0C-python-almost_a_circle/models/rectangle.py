@@ -136,3 +136,26 @@ class Rectangle(Base):
         """
         return ("[Rectangle] ({}) {}/{} - {}/{}".format(
             self.id, self.x, self.y, self.width, self.height))
+
+    def update(self, *args, **kwargs):
+        """
+        update method to update attrributes of the rectangle
+        that accepts *args and **kwargs
+        """
+        args_list = ["id", "width", "height", "x", "y", "\0"]
+        if (len(args)):
+            for i in range(len(args)):
+                setattr(self, args_list[i], args[i])
+        else:
+            for k, v in kwargs.items():
+                setattr(self, k, v)
+
+    def to_dictionary(self):
+        """
+        to_dictionary method is used to return a dictionary
+        representation of a rectangle object
+        """
+        return {
+            attr: getattr(self, attr)
+            for attr in ['id', 'width', 'height', 'x', 'y']
+            }
