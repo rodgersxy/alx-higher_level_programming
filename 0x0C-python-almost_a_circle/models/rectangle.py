@@ -99,3 +99,10 @@ class Rectangle(Base):
             ValueError: If the values are not within the allowed
             range
         """
+        if type(value) is not int:
+            raise TypeError("{} must be an integer".format(name))
+        else:
+            if (name in ["width", "height"] and value <= 0):
+                raise ValueError("{} must be > 0".format(name))
+            elif (name in ["x", "y"] and value < 0):
+                raise ValueError("{} must be >= 0".format(name))
