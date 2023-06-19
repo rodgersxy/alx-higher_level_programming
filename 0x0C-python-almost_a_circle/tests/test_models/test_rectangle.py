@@ -110,6 +110,25 @@ class TestRectangle(unittest.TestCase):
         expected_dict = {'id': 4, 'width': 10, 'height': 8, 'x': 4, 'y': 6}
         self.assertEqual(r.to_dictionary(), expected_dict)
 
+    # testCase for creat
+
+    def test_create(self):
+        """to create"""
+        r1 = Rectangle(3, 5, 1)
+        r1_dictionary = r1.to_dictionary()
+        r2 = Rectangle.create(**r1_dictionary)
+        self.assertEqual(r1.to_dictionary(), r2.to_dictionary())
+        self.assertNotEqual(r1, r2)
+        self.assertIsNot(r1, r2)
+
+    # testCase errors
+
+    def test_update_width_type_error(self):
+        """Test update method with width type error"""
+        r1 = Rectangle(7, 3, 2, 4)
+        with self.assertRaisesRegex(TypeError, "width must be an integer"):
+            r1.update(1, "str")
+
 
 if __name__ == "__main__":
     unittest.main()
