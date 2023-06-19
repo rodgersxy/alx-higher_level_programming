@@ -129,6 +129,46 @@ class TestRectangle(unittest.TestCase):
         with self.assertRaisesRegex(TypeError, "width must be an integer"):
             r1.update(1, "str")
 
+    def test_update_width_value_error_negative(self):
+        r1 = Rectangle(7, 3, 2, 4)
+        with self.assertRaisesRegex(ValueError, "width must be > 0"):
+            r1.update(1, -1)
+
+    def test_update_width_value_error_zero(self):
+        r1 = Rectangle(7, 3, 2, 4)
+        with self.assertRaisesRegex(ValueError, "width must be > 0"):
+            r1.update(1, 0)
+
+    # testcase for setters and getters
+
+    def test_constructor(self):
+        r = Rectangle(5, 10, 2, 3, 1)
+        self.assertEqual(r.width, 5)
+        self.assertEqual(r.height, 10)
+        self.assertEqual(r.x, 2)
+        self.assertEqual(r.y, 3)
+        self.assertEqual(r.id, 1)
+
+    def test_width(self):
+        r = Rectangle(5, 10)
+        r.width = 7
+        self.assertEqual(r.width, 7)
+
+    def test_height(self):
+        r = Rectangle(5, 10)
+        r.height = 8
+        self.assertEqual(r.height, 8)
+
+    def test_x(self):
+        r = Rectangle(5, 10)
+        r.x = 3
+        self.assertEqual(r.x, 3)
+
+    def test_y(self):
+        r = Rectangle(5, 10)
+        r.y = 4
+        self.assertEqual(r.y, 4)
+
 
 if __name__ == "__main__":
     unittest.main()
