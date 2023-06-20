@@ -6,6 +6,7 @@ import unittest
 from models import rectangle
 from models.base import Base
 import pycodestyle
+import csv
 Rectangle = rectangle.Rectangle
 
 
@@ -168,6 +169,24 @@ class TestRectangle(unittest.TestCase):
         r = Rectangle(5, 10)
         r.y = 4
         self.assertEqual(r.y, 4)
+
+    # csv
+
+    def test_save_to_file_csv(self):
+        r1 = Rectangle(10, 5)
+        r2 = Rectangle(7, 3, 2, 4)
+        objects_list = [r1, r2]
+
+        Rectangle.save_to_file_csv(objects_list)
+
+        with open("Rectangle.csv", "r", encoding="utf-8") as file:
+            reader = csv.reader(file)
+            csv_data = list(reader)
+
+        self.assertEqual(len(csv_data), 3)
+        self.assertEqual(csv_data[0], ["id", "width", "height", "x", "y"])
+        self.assertEqual(csv_data[1], ["1", "10", "5", "0", "0"])
+        self.assertEqual(csv_data[2], ["2", "7", "3", "2", "4"])
 
 
 if __name__ == "__main__":
