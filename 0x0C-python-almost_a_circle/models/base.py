@@ -6,6 +6,7 @@ __nb_objects = 0  (private class attribute)
 """
 import json
 import csv
+import turtle
 
 
 class Base:
@@ -152,3 +153,41 @@ class Base:
             return list_result
         except Exception:
             return list_result
+
+    def draw(list_rectangles, list_squares):
+        """
+        opens a window and draws all the Rectangles and Squares
+        Args:
+            list_rectangles: list of rectangle
+            list_square: list of square
+        """
+        turtle.speed(0)
+        screen = turtle.Screen()
+
+        for rectangle in list_rectangles:
+            turtle.penup()
+            turtle.goto(rectangle.x, rectangle.y)
+            turtle.pendown()
+            turtle.color(random.choice(['red', 'green', 'blue']))
+            turtle.begin_fill()
+            for _ in range(2):
+                turtle.forward(rectangle.width)
+                turtle.left(90)
+                turtle.forward(rectangle.height)
+                turtle.left(90)
+            turtle.end_fill()
+
+        # Create a turtle for each square
+
+        for square in list_squares:
+            turtle.penup()
+            turtle.goto(square.x, square.y)
+            turtle.pendown()
+            turtle.color(random.choice(['red', 'green', 'blue']))
+            turtle.begin_fill()
+            for _ in range(4):
+                turtle.forward(square.size)
+                turtle.left(90)
+            turtle.end_fill()
+
+        turtle.done()
