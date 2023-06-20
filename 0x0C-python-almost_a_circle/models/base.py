@@ -5,6 +5,7 @@ in this project.
 __nb_objects = 0  (private class attribute)
 """
 import json
+import csv
 
 
 class Base:
@@ -111,3 +112,43 @@ class Base:
             return instance_result
         except Exception:
             return instance_result
+
+    @classmethod
+    def save_to_file_csv(cls, list_objs):
+        """
+        to write the csv file of the object lists
+        Args:
+            list_objs - object list
+        """
+        filename = cls.__name__+".csv"
+        if cls.__name__ == "Rectangle":
+            labels = ["id", "width", "height", "x", "y"]
+        else:
+            labels = ["id", "size", "x", "y"]
+        list_of_dict = [elt.to_dictionary() for elt in list_objs]
+        with open(filename, "w", encoding="utf-8") as file:
+            writer = csv.DictWriter(file, fieldnames=labels)
+            writer.writeheader()
+            for elt in list_of_dict:
+                writer.writerow(elt)
+
+    @classmethod
+    def load_from_file_csv(cls):
+        """
+        returning lists of instances
+        """
+        filename = cls.__name__+".csv"
+        list_instance = []
+        list_result = []
+        try:
+            with open(filename) as file:
+                reader = csv.DictReader(file)
+                for row in reader:
+                    for field_name in row:
+                        row[field_name] = int(row[field_name])
+                    list_instance.append(row)
+                for dic in list_instance:
+                    list_result.append(cls.create(**dic))
+            return list_result
+        except Exception:
+            return list_result
