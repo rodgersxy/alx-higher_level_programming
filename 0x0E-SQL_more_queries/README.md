@@ -1,3 +1,4 @@
+![bc2575fee3303b731031](https://github.com/rodgersxy/alx-higher_level_programming/assets/47353893/5b4a2154-0f06-4bcd-8666-a4c9c74123d8)
 # 0x0E. SQL - More queries
 
 ## Resources
