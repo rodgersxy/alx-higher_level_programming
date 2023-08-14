@@ -1,3 +1,4 @@
+![Javascript-535 png](https://github.com/rodgersxy/alx-higher_level_programming/assets/47353893/37d8b64e-4263-43d8-903e-3e9a591baf61)
 # 0x12. JavaScript - Warm UP
 
 `
