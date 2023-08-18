@@ -27,14 +27,17 @@ def main():
 
     cur.execute("SELECT cities.id, cities.name, states.name\
                 FROM cities\
-                JOIN states\
+                LEFT JOIN states\
                 ON cities.state_id = states.id\
                 WHERE states.name = %s\
                 ORDER BY cities.id", (sys.argv[4],))
 
     query_rows = cur.fetchall()
+    string = ""
     for row in query_rows:
-        print(row)
+        if (row[2] == sys.argv[4]):
+            string += row[1] + "\n"
+    print(string[:-2])
 
     cur.close()
     db.close()
