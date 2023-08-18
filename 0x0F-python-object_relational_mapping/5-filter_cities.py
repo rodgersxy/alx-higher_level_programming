@@ -36,7 +36,7 @@ def main():
     string = ""
     for row in query_rows:
         if (row[2] == sys.argv[4]):
-            string += row[1] + "\n"
+            string += row[1] + ", "
     print(string[:-2])
 
     cur.close()
