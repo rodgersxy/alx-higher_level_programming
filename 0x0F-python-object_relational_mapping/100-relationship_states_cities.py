@@ -12,19 +12,24 @@ from sqlalchemy.orm import sessionmaker
 
 
 def main():
+    if len(argv) != 4:
+        return
+
     engine = create_engine('mysql+mysqldb://{}:{}@localhost/{}'.format(
         argv[1], argv[2], argv[3]), pool_pre_ping=True)
 
     Base.metadata.create_all(engine)
+
     Session = sessionmaker(bind=engine)
     session = Session()
+
     new_state = State(name="California")
     session.add(new_state)
     session.commit()
     new_city = City(name="San Francisco", state=new_state)
     session.add(new_city)
     session.commit()
-    print(new_city.id)
+
     session.close()
 
 
