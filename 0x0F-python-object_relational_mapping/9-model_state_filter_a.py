@@ -24,10 +24,10 @@ def main():
     Session = sessionmaker(bind=engine)
     session = Session()
 
-    result = session.query(State).order_by(State.id).all()
+    result = session.query(State).order_by(State.id)
 
     for state in result:
-        if state.name[0] == 'a':
+        if "a" in state.name:
             print("{}: {}".format(state.id, state.name))
     session.close()
 
