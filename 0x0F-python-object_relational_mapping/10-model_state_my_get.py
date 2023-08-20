@@ -25,9 +25,9 @@ def main():
     session = Session()
 
     key = 0
-    for state in session.query(State).order_by(State.id):
+    for state in session.query(State):
         if argv[4] == state.name:
-            print("{}: {}".format(state.id, state.name))
+            print("{}".format(state.id))
             key = 1
     if key == 0:
         print("Not found")
